@@ -59,16 +59,44 @@ https://USERNAME.github.io/REPO-NAME
 
 **Note:** It may take a few minutes for the site to be available after enabling GitHub Pages.
 
-### 5. Custom Domain (Optional)
+### 5. Custom Domain Setup (www.vitalaco.com)
 
-If you have a custom domain (e.g., `vitalaco.com`):
+The `CNAME` file has been created with `www.vitalaco.com`. To complete the setup:
 
-1. In the GitHub Pages settings, enter your custom domain
-2. Add a `CNAME` file in your repository root with your domain name
-3. Configure DNS records with your domain provider:
-   - Type: `CNAME`
-   - Name: `www` (or `@` for root domain)
-   - Value: `USERNAME.github.io`
+1. **Push the CNAME file to GitHub** (it's already in the repository)
+
+2. **In GitHub Pages Settings:**
+   - Go to Settings → Pages
+   - Under "Custom domain", enter: `www.vitalaco.com`
+   - Check "Enforce HTTPS" (will be available after DNS is configured)
+   - Click Save
+
+3. **Configure DNS with your domain provider** (where you bought vitalaco.com):
+   
+   Add a **CNAME record**:
+   - **Type**: `CNAME`
+   - **Name/Host**: `www`
+   - **Value/Target**: `yigitalpciray.github.io` (your GitHub username + .github.io)
+   - **TTL**: 3600 (or default)
+
+   **Optional - For root domain (vitalaco.com without www):**
+   - Add an **A record**:
+     - **Type**: `A`
+     - **Name/Host**: `@` (or leave blank)
+     - **Value**: GitHub Pages IP addresses:
+       - `185.199.108.153`
+       - `185.199.109.153`
+       - `185.199.110.153`
+       - `185.199.111.153`
+     - **TTL**: 3600
+
+4. **Wait for DNS propagation** (can take a few minutes to 48 hours)
+
+5. **Verify**: Once DNS propagates, GitHub will show a green checkmark next to your custom domain in Pages settings
+
+Your site will be accessible at:
+- `https://www.vitalaco.com`
+- `https://yigitalpciray.github.io/Vitala` (still works as backup)
 
 ## File Structure
 
@@ -78,6 +106,7 @@ Vitala/
 ├── privacy.html        # Privacy policy page
 ├── terms.html          # Terms of conditions page
 ├── styles.css          # Main stylesheet
+├── CNAME              # Custom domain configuration
 └── README.md          # This file
 ```
 
