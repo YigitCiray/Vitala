@@ -50,33 +50,23 @@
 
         <!-- CTA Section -->
         <section class="cta">
-            <h2>Be the First to Know</h2>
-            <p>Join our waitlist and get notified when we launch</p>
-            <form class="waitlist-form" id="waitlistForm">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Notify Me</button>
-            </form>
-            <div class="social-links">
-                <a href="#" class="social-link">Twitter</a>
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">Instagram</a>
+            <div class="contact-info">
+                <a href="mailto:info@vitalaco.com" class="contact-email">info@vitalaco.com</a>
             </div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2024 Vitala. All rights reserved.</p>
+            <p>&copy; 2025 Vitala. All rights reserved.</p>
+            <p class="footer-contact"><a href="mailto:info@vitalaco.com">info@vitalaco.com</a></p>
+            <p class="footer-address">418 Broadway Ste N, Albany, NY 12207</p>
+            <p class="footer-links">
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="terms.html">Terms of Conditions</a>
+            </p>
         </footer>
     </div>
 
-    <script>
-        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            alert('Thank you! We\'ll notify you at ' + email + ' when we launch.');
-            this.reset();
-        });
-    </script>
 </body>
 </html>
 
