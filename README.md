@@ -59,7 +59,7 @@ https://USERNAME.github.io/REPO-NAME
 
 **Note:** It may take a few minutes for the site to be available after enabling GitHub Pages.
 
-### 5. Custom Domain Setup (www.vitalaco.com)
+### 5. Custom Domain Setup (www.vitalaco.com and vitalaco.com)
 
 The `CNAME` file has been created with `www.vitalaco.com`. To complete the setup:
 
@@ -70,25 +70,47 @@ The `CNAME` file has been created with `www.vitalaco.com`. To complete the setup
    - Under "Custom domain", enter: `www.vitalaco.com`
    - Check "Enforce HTTPS" (will be available after DNS is configured)
    - Click Save
+   - **Note**: GitHub will automatically detect and configure the root domain (vitalaco.com) once DNS is set up correctly
 
 3. **Configure DNS with your domain provider** (where you bought vitalaco.com):
    
-   Add a **CNAME record**:
+   **For www.vitalaco.com - Add a CNAME record:**
    - **Type**: `CNAME`
    - **Name/Host**: `www`
-   - **Value/Target**: `yigitalpciray.github.io` (your GitHub username + .github.io)
+   - **Value/Target**: `yigitalpciray.github.io` (or `yigitalpciray.github.io.` if your provider requires trailing dot)
    - **TTL**: 3600 (or default)
-
-   **Optional - For root domain (vitalaco.com without www):**
-   - Add an **A record**:
-     - **Type**: `A`
-     - **Name/Host**: `@` (or leave blank)
-     - **Value**: GitHub Pages IP addresses:
-       - `185.199.108.153`
-       - `185.199.109.153`
-       - `185.199.110.153`
-       - `185.199.111.153`
-     - **TTL**: 3600
+   
+   **For root domain (vitalaco.com) - Add FOUR A records:**
+   You need to create 4 separate A records, each with one of these IP addresses:
+   
+   **A Record 1:**
+   - **Type**: `A`
+   - **Name/Host**: `@` (or leave blank, or `vitalaco.com`)
+   - **Value**: `185.199.108.153`
+   - **TTL**: 3600
+   
+   **A Record 2:**
+   - **Type**: `A`
+   - **Name/Host**: `@` (or leave blank, or `vitalaco.com`)
+   - **Value**: `185.199.109.153`
+   - **TTL**: 3600
+   
+   **A Record 3:**
+   - **Type**: `A`
+   - **Name/Host**: `@` (or leave blank, or `vitalaco.com`)
+   - **Value**: `185.199.110.153`
+   - **TTL**: 3600
+   
+   **A Record 4:**
+   - **Type**: `A`
+   - **Name/Host**: `@` (or leave blank, or `vitalaco.com`)
+   - **Value**: `185.199.111.153`
+   - **TTL**: 3600
+   
+   **Important**: 
+   - The root domain (vitalaco.com) MUST use A records (not CNAME)
+   - You need all 4 A records for redundancy
+   - Some DNS providers allow you to add multiple IPs in one record, others require separate records
 
 4. **Wait for DNS propagation** (can take a few minutes to 48 hours)
 
